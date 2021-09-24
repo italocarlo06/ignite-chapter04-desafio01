@@ -4,7 +4,6 @@ import 'express-async-errors';
 import express from 'express';
 import cors from 'cors';
 
-import './database';
 import './shared/container';
 import { router } from './routes';
 import { AppError } from './shared/errors/AppError';
@@ -23,7 +22,6 @@ app.use(
         message: err.message
       });
     }
-
     return response.status(500).json({
       status: "error",
       message: `Internal server error - ${err.message} `,
